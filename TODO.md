@@ -12,3 +12,10 @@
 * Add map functionality
   * Could take current location data and color code areas with price efficiency grades
   * TBD on if there is any data available for actual price information
+
+
+## Notes on modeling
+* There is no per station price data (yet)
+* The project could provide modeling of price cost saving methods?
+ * E.g. "Today is *weekday*, you could save *x,yz* EUR by filling up *another weekday*"
+ * "Using E85 you could save *percentage* in fuel costs"

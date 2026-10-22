@@ -1,0 +1,33 @@
+:root {
+  --bg: #eef1f3; --panel: #fff; --ink: #14202b; --mute: #5d6b78;
+  --line: #d3dbe1; --accent: #0f6b5a; --bad: #b5402a; --field: #f6f8f9;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f161c; --panel: #18222b; --ink: #e8eef2; --mute: #92a1ad;
+    --line: #2b3946; --accent: #3cc19e; --bad: #e5806a; --field: #101920;
+  }
+}
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.45 system-ui, sans-serif; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 18px 16px 28px; }
+h1 { font-size: 22px; margin: 0 0 4px; }
+.sub { color: var(--mute); margin: 0 0 16px; max-width: 70ch; }
+.main { display: grid; grid-template-columns: minmax(0, 1fr) 330px; gap: 16px; align-items: start; }
+@media (max-width: 860px) { .main { grid-template-columns: minmax(0, 1fr); } }
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 14px; }
+.mapbox { position: relative; width: 100%; aspect-ratio: 1.4; }
+canvas { position: absolute; inset: 0; width: 100%; height: 100%; touch-action: none; cursor: crosshair; }
+.hover { color: var(--mute); font-size: 13px; min-height: 20px; margin: 8px 0 0; }
+.key { display: flex; gap: 14px; flex-wrap: wrap; color: var(--mute); font-size: 13px; margin-top: 6px; }
+.sw { display: inline-block; width: 11px; height: 11px; border-radius: 2px; margin-right: 5px; }
+.verdict { font-size: 19px; font-weight: 700; margin: 0 0 10px; }
+.verdict.win { color: var(--accent); }
+.verdict.lose { color: var(--bad); }
+dl { margin: 0; display: grid; grid-template-columns: 1fr auto; gap: 6px 12px; }
+dt { color: var(--mute); }
+dd { margin: 0; font-weight: 500; text-align: right; font-variant-numeric: tabular-nums; }
+.fields { display: grid; grid-template-columns: 1fr 96px; gap: 8px 10px; align-items: center; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line); }
+.fields label { color: var(--mute); font-size: 13px; }
+input, select { width: 100%; font: inherit; color: var(--ink); background: var(--field); border: 1px solid var(--line); border-radius: 6px; padding: 5px 7px; }
+input:focus-visible, select:focus-visible, canvas:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }

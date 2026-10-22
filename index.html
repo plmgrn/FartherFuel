@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FartherFuel</title>
+</head>
+<body>
+<div class="wrap">
+  <h1>FartherFuel</h1>
+  <p class="sub">Is the farther station worth the drive? Click or drag on the map to choose how much fuel you buy and how far you drive extra. The black line is break-even.</p>
+  <div class="main">
+    <div class="panel">
+      <div class="mapbox"><canvas id="map" tabindex="0" aria-label="Savings map, fuel bought against extra distance"></canvas></div>
+      <p class="hover" id="hover">Hover over the map to read values.</p>
+      <div class="key">
+        <span><i class="sw" style="background:#2f9e73"></i>far station cheaper</span>
+        <span><i class="sw" style="background:#cc5a41"></i>near station cheaper</span>
+        <span id="scale"></span>
+      </div>
+    </div>
+    <div class="panel">
+      <p class="verdict" id="verdict"></p>
+      <dl>
+        <dt>Savings</dt><dd id="r_eur"></dd>
+        <dt>Share of near station cost</dt><dd id="r_pct"></dd>
+        <dt>Fuel burned on detour</dt><dd id="r_burn"></dd>
+        <dt>Longest worthwhile detour</dt><dd id="r_bed"></dd>
+        <dt>Least fuel worth buying</dt><dd id="r_bev"></dd>
+        <dt>Smallest worthwhile price gap</dt><dd id="r_beg"></dd>
+      </dl>
+      <div class="fields">
+        <label for="volume">Fuel bought (L)</label><input id="volume" type="number" step="0.5" min="0">
+        <label for="distFar">Extra distance (km)</label><input id="distFar" type="number" step="0.5" min="0">
+        <label for="consumption">Consumption (L/100 km)</label><input id="consumption" type="number" step="0.1" min="0.1">
+        <label for="priceFar">Far station (EUR/L)</label><input id="priceFar" type="number" step="0.001" min="0">
+        <label for="priceNear">Near station (EUR/L)</label><input id="priceNear" type="number" step="0.001" min="0">
+        <label for="distNear">Near station extra km</label><input id="distNear" type="number" step="0.1" min="0">
+        <label for="costPerKm">Other cost (EUR/km)</label><input id="costPerKm" type="number" step="0.01" min="0">
+        <label for="tank">Tank size (L)</label><input id="tank" type="number" step="1" min="1">
+        <label for="mapMaxDist">Map max distance (km)</label><input id="mapMaxDist" type="number" step="5" min="1">
+        <label for="mode">Map shows</label>
+        <select id="mode"><option value="eur">Savings (EUR)</option><option value="pct">Savings (% of near cost)</option></select>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="module" src="/src/main.ts"></script>
+</body>
+</html>

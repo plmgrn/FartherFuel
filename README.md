@@ -1,4 +1,4 @@
-# FartherFuel
+# [FartherFuel](plmgrn.github.io/FartherFuel)
 
 Is the farther, cheaper fuel station worth the drive? Pick fuel volume and
 extra distance on a map and see the savings. No runtime dependencies.

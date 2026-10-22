@@ -1,31 +1,33 @@
-/** Colours the heatmap needs, as RGB triples or CSS strings. */
+/** Values the canvas map needs, read from the CSS tokens. */
 export interface Theme {
-  zero: [number, number, number]; // neutral colour at 0
-  pos: [number, number, number]; // far station wins
-  neg: [number, number, number]; // near station wins
   ink: string;
-  mute: string;
-  grid: string;
+  muted: string;
+  rule: string;
+  contour: string;
+  bg: string;
+  font: string; // CSS font shorthand for canvas text
 }
 
-const LIGHT: Theme = {
-  zero: [243, 245, 246], pos: [47, 158, 115], neg: [204, 90, 65],
-  ink: '#14202b', mute: '#5d6b78', grid: 'rgba(20,32,43,.20)',
-};
+/**
+ * Reads the current design tokens, so the map always matches the stylesheets.
+ * @param canvas element whose computed font is used for map text
+ */
+export function readTheme(canvas: Element): Theme {
+  const root = getComputedStyle(document.documentElement);
+  const token = (name: string): string => root.getPropertyValue(name).trim();
+  const cs = getComputedStyle(canvas);
 
-const DARK: Theme = {
-  zero: [36, 48, 58], pos: [52, 176, 126], neg: [222, 98, 74],
-  ink: '#e8eef2', mute: '#92a1ad', grid: 'rgba(255,255,255,.17)',
-};
-
-const query = '(prefers-color-scheme: dark)';
-
-/** Returns the palette matching the system colour scheme. */
-export function getTheme(): Theme {
-  return matchMedia(query).matches ? DARK : LIGHT;
+  return {
+    ink: token('--ink'),
+    muted: token('--muted'),
+    rule: token('--rule'),
+    contour: token('--contour'),
+    bg: token('--bg'),
+    font: `${cs.fontSize} ${cs.fontFamily}`,
+  };
 }
 
 /** Calls `callback` whenever the system colour scheme changes. */
 export function onThemeChange(callback: () => void): void {
-  matchMedia(query).addEventListener('change', callback);
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', callback);
 }

@@ -1,0 +1,45 @@
+/* Design tokens. The only place where colours, fonts, sizes and spacing are
+   defined. Every other stylesheet and the canvas map read these values. */
+:root {
+  /* colours */
+  --bg: #ffffff;
+  --ink: #1a1a1a;
+  --muted: #5c5c5c;
+  --rule: #cfcfcf;
+  --contour: #7f93ab;
+  --accent: #1d4f91;
+  --field-bg: #ffffff;
+
+  /* type */
+  --font: Charter, "Iowan Old Style", Cambria, Georgia, serif;
+  --font-mono: ui-monospace, Consolas, "Courier New", monospace;
+  --text-small: 0.875rem;
+  --text: 1.0625rem;
+  --text-large: 1.3rem;
+  --text-title: 1.75rem;
+  --leading: 1.55;
+
+  /* spacing, deliberately uneven steps */
+  --space-1: 0.25rem;
+  --space-2: 0.6rem;
+  --space-3: 1.1rem;
+  --space-4: 2rem;
+  --space-5: 3.25rem;
+
+  /* shape and layout */
+  --radius: 2px;
+  --page-width: 46rem;
+  --map-ratio: 1.55;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #161616;
+    --ink: #e4e4e4;
+    --muted: #9a9a9a;
+    --rule: #3a3a3a;
+    --contour: #5f7389;
+    --accent: #8fb8ea;
+    --field-bg: #1e1e1e;
+  }
+}

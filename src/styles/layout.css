@@ -1,0 +1,30 @@
+/* Page structure: one column, left aligned text. */
+.page {
+  max-width: var(--page-width);
+  margin: var(--space-5) auto;
+  padding: 0 var(--space-3);
+}
+
+.lede { color: var(--muted); }
+
+/* the one-sentence answer, set a little larger than body text */
+.result { font-size: var(--text-large); line-height: 1.4; margin: var(--space-4) 0 var(--space-3); }
+
+.map { margin: 0 0 var(--space-3); }
+.map canvas {
+  display: block;
+  width: 100%;
+  aspect-ratio: var(--map-ratio);
+  cursor: crosshair;
+  touch-action: none;
+  /* the canvas code reads this font */
+  font-family: var(--font);
+  font-size: var(--text-small);
+}
+.map figcaption, .hover { color: var(--muted); font-size: var(--text-small); }
+.hover { min-height: 1.5em; margin: var(--space-1) 0 var(--space-1); }
+
+.limits { margin: 0 0 var(--space-3); padding-left: var(--space-3); }
+.limits li { margin-bottom: var(--space-1); }
+
+.fields { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-3); }

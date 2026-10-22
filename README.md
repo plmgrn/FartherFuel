@@ -30,11 +30,14 @@ Fuel burned on a detour is assumed to be replaced at that station's price.
 
 ## Layout
 
-    src/model/   pure functions, no DOM (tested)
-    src/data/    price sources (manual input for now)
-    src/ui/      controls, readout, heatmap, theme
-    src/state.ts tiny pub/sub store
-    src/main.ts  wiring only
+    src/model/    pure functions, no DOM (tested)
+    src/data/     price sources (manual input for now)
+    src/styles/   tokens.css (all colours, fonts, spacing), base.css, layout.css
+    src/ui/       controls, readout, contour map, theme (reads the tokens)
+    src/state.ts  tiny pub/sub store
+    src/main.ts   wiring only
+
+To change the look, edit `src/styles/tokens.css`. The canvas map reads the same tokens.
 
 ## Roadmap
 
